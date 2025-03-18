@@ -4,6 +4,7 @@ import MoreCityInfoComponent from "@/components/MoreCityInfoComponent";
 import SearchBarComponent from "@/components/SearchBarComponent";
 import WeatherImgComponent from "@/components/WeatherImgComponent";
 import React from "react";
+import { APIKEY } from "@/something";
 
 const WeatherPage = () => {
   return (
