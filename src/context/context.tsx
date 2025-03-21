@@ -11,6 +11,8 @@ interface Context {
     setIsFahrenheit: (isTrue: boolean) => void
 }
 
+
+
 const AppContext = createContext<Context>({
     temp: '',
     setTemp: (tempAmount: string) => '',
