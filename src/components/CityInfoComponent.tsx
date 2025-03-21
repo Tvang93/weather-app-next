@@ -37,7 +37,7 @@ const CityInfoComponent = (props: InfoProps) => {
             }`}
             onClick={() => {
               if (temp != props.temp) {
-                setTemp(Math.round(((Number(temp) - 32) * 5) / 9).toString());
+                setTemp(Math.round((Number(temp) * 9) / 5 + 32).toString());
                 setIsFahrenheit(true);
               }
             }}
@@ -52,7 +52,7 @@ const CityInfoComponent = (props: InfoProps) => {
             }`}
             onClick={() => {
               if (temp == props.temp) {
-                setTemp(Math.round((Number(temp) * 9) / 5 + 32).toString());
+                setTemp(Math.round(((Number(temp) - 32) * 5) / 9).toString());
                 setIsFahrenheit(false);
               }
             }}

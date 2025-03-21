@@ -22,9 +22,10 @@ const MoreCityInfoComponent = (props: MoreInfo) => {
           </h1>
           <h2 className="text-[48px]">{`${
             isFahrenheit
-              ? props.highTemp
-              : Math.round((Number(props.highTemp) * 9) / 5 + 32).toString()
-          }°${isFahrenheit ? `F` : `C`}`}</h2>
+              ? props.highTemp + `°F`
+              : Math.round((Number(props.highTemp) - 32) / 9 * 5).toString() +
+                `°C`
+          }`}</h2>
         </div>
         <div>
           <img
@@ -56,9 +57,10 @@ const MoreCityInfoComponent = (props: MoreInfo) => {
           </h1>
           <h2 className="text-[48px]">{`${
             isFahrenheit
-              ? props.lowTemp
-              : Math.round((Number(props.lowTemp) * 9) / 5 + 32).toString()
-          }°${isFahrenheit ? `F` : `C`}`}</h2>
+              ? props.lowTemp + `°F`
+              : Math.round((Number(props.lowTemp) - 32) / 9 * 5).toString() +
+                `°C`
+          }`}</h2>
         </div>
         <div>
           <img

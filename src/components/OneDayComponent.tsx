@@ -1,6 +1,6 @@
 import { useAppContext } from "@/context/context";
 import { useWeatherImgContext } from "@/context/WeatherImgContext";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 interface Props {
   dayOfWeek: string;
@@ -12,53 +12,41 @@ interface Props {
 const OneDayComponent = (props: Props) => {
   const { isFahrenheit } = useAppContext();
 
-    const {state, dispatch} = useWeatherImgContext();
-  
-    useEffect(() => {
-      switch (props.condition) {
-        case "Rain":
-          dispatch({ type: "Rain" });
-          break;
-        case "Clear":
-          dispatch({ type: "Clear" });
-          break;
-        case "Thunderstorm":
-          dispatch({ type: "Thunderstorm" });
-          break;
-        case "Clouds":
-          dispatch({ type: "Clouds" });
-          break;
-        case "Atmosphere":
-          dispatch({ type: "Atmosphere" });
-          break;
-        case "Drizzle":
-          dispatch({ type: "Drizzle" });
-          break;
-        case "Snow":
-          dispatch({ type: "Snow" });
-          break;
-      }
-    }, [props]);
-    
-  // const {conditionImgUrl, dispatch} = useWeatherImgContext()
-  
-  // const setImgUrl = dispatch(props.condition)
+  const setWeatherImg = useMemo(() => {
+    console.log("used");
+    switch (props.condition) {
+      case "Thunderstorm":
+        return "/ProjectWeatherAssets/storm.png";
+      case "Drizzle":
+        return "/ProjectWeatherAssets/rain.png";
+      case "Rain":
+        return "/ProjectWeatherAssets/rainy.png";
+      case "Snow":
+        return "/ProjectWeatherAssets/snow.png";
+      case "Atmosphere":
+        return "/ProjectWeatherAssets/fog.png";
+      case "Clear":
+        return "/ProjectWeatherAssets/sunny.png";
+      default:
+        return "/ProjectWeatherAssets/cloud.png";
+    }
+  }, [props]);
 
   return (
     <div className="flex justify-center grow">
       <div className="flex flex-col items-center grow">
         <h1 className="text-[48px]">{props.dayOfWeek}</h1>
-        <img className="w-[132px]" src={state.condition} alt={props.condition} />
+        <img className="w-[132px]" src={setWeatherImg} alt={props.condition} />
         <p className="text-2xl">{`H: ${
           isFahrenheit
-            ? props.highTemp
-            : Math.round((Number(props.highTemp) * 9) / 5 + 32).toString()
-        }°${isFahrenheit ? `F` : `C`}`}</p>
+            ? props.highTemp + `°F`
+            : Math.round(((Number(props.highTemp) - 32) / 9) * 5).toString() + `°C`}`}
+        </p>
         <p className="text-2xl">{`L: ${
           isFahrenheit
-            ? props.lowTemp
-            : Math.round((Number(props.lowTemp) * 9) / 5 + 32).toString()
-        }°${isFahrenheit ? `F` : `C`}`}</p>
+            ? props.lowTemp + `°F`
+            : Math.round(((Number(props.lowTemp) - 32) / 9) * 5).toString() + `°C`}`}
+        </p>
       </div>
     </div>
   );
