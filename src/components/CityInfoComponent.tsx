@@ -12,14 +12,14 @@ interface InfoProps {
 
 const CityInfoComponent = (props: InfoProps) => {
   // const inUS = props.countryName == "US"
-  const {temp, setTemp} = useAppContext();
-  const {isFahrenheit, setIsFahrenheit} = useAppContext();
+  const { temp, setTemp } = useAppContext();
+  const { isFahrenheit, setIsFahrenheit } = useAppContext();
 
   useEffect(() => {
-    if (props.temp != null){
+    if (props.temp != null) {
       setTemp(props.temp);
-      console.log(temp)
-    } 
+      console.log(temp);
+    }
   }, []);
 
   return (
@@ -33,15 +33,11 @@ const CityInfoComponent = (props: InfoProps) => {
         <div className="me-8">
           <button
             className={`border-r-2 border-[#757575] pe-5 me-5 items-center ${
-              temp == props.temp
-                ? `text-8xl`
-                : `text-[70px] text-[#757575]`
+              temp == props.temp ? `text-8xl` : `text-[70px] text-[#757575]`
             }`}
             onClick={() => {
               if (temp != props.temp) {
-                setTemp(
-                  Math.round(((Number(temp) - 32) * 5) / 9).toString()
-                );
+                setTemp(Math.round(((Number(temp) - 32) * 5) / 9).toString());
                 setIsFahrenheit(true);
               }
             }}
@@ -56,9 +52,7 @@ const CityInfoComponent = (props: InfoProps) => {
             }`}
             onClick={() => {
               if (temp == props.temp) {
-                setTemp(
-                  Math.round((Number(temp) * 9) / 5 + 32).toString()
-                );
+                setTemp(Math.round((Number(temp) * 9) / 5 + 32).toString());
                 setIsFahrenheit(false);
               }
             }}
