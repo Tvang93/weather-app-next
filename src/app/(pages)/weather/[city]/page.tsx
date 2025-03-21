@@ -9,7 +9,7 @@ import React from "react";
 const WeatherPage = async({params}: {params: Promise<{city: string}>}) => {
     const {city} = await params
 
-  
+    
 
 //   const oneDayData = await getCurrentDayData(city);
 //   console.log(oneDayData);
@@ -21,7 +21,7 @@ const WeatherPage = async({params}: {params: Promise<{city: string}>}) => {
       <div className="flex mb-[62px]">
         <div>
           <WeatherImgComponent 
-            condition={`Clear`}
+            condition={`Rain`}
           />
         </div>
         <div className="bg-[rgb(255,255,255,0.6)] rounded-[15px] w-[440px] ms-[46px] me-[54px]">
