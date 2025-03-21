@@ -24,19 +24,11 @@ const RecentSearchesComponent = () => {
               className="w-[42px]"
               src={`${
                 isFavored
-                  ? `/ProjectWeatherAssets/star_filled.png`
+                  ? `/ProjectWeatherAssets/filled_star.png`
                   : `/ProjectWeatherAssets/star.png`
               }`}
               alt="star"
-              onClick={() => {
-                if (!isFavored) {
-                  saveToFavorites(each); 
-                  setIsFavored(true);
-                } else {
-                  removeFavorites(each); 
-                  setIsFavored(false);
-                }
-              }}
+              onClick={() =>  saveToFavorites(each)}
             />
           </div>
         );
