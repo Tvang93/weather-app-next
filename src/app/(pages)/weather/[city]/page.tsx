@@ -6,14 +6,15 @@ import WeatherImgComponent from "@/components/WeatherImgComponent";
 import { getCurrentDayData, getFiveDayData } from "@/lib/services";
 import React from "react";
 
-const WeatherPage = async() => {
+const WeatherPage = async({params}: {params: Promise<{city: string}>}) => {
+    const {city} = await params
 
+  
 
-
-  // const oneDayData = await getCurrentDayData("Stockton");
-  // console.log(oneDayData);
-  // const fiveDaysData = await getFiveDayData(oneDayData.coord.lat, oneDayData.coord.lon);
-  // console.log(fiveDaysData)
+//   const oneDayData = await getCurrentDayData(city);
+//   console.log(oneDayData);
+//   const fiveDaysData = await getFiveDayData(oneDayData.coord.lat, oneDayData.coord.lon);
+//   console.log(fiveDaysData)
 
   return (
     <div className="min-h-screen bg-[url(/ProjectWeatherAssets/crayon-day-time.png)] bg-no-repeat bg-cover bg-fill px-[192px] pt-[136px] pb-[76px]">
@@ -21,12 +22,12 @@ const WeatherPage = async() => {
         <div>
           <WeatherImgComponent />
         </div>
-        <div className="bg-[rgb(255,255,255,0.6)] rounded-[15px] w-[440px] h-[394px] ms-[46px] me-[54px]">
+        <div className="bg-[rgb(255,255,255,0.6)] rounded-[15px] w-[440px] ms-[46px] me-[54px]">
           <CityInfoComponent 
             cityName={`string`}
             countryInitial={`string`}
             latestTime={`string`}
-            temp={`string`}
+            temp={`12`}
             weather={`string`}
           />
         </div>
@@ -36,10 +37,10 @@ const WeatherPage = async() => {
           </div>
           <div className="bg-[rgb(255,255,255,0.6)] rounded-[15px] grow">
             <MoreCityInfoComponent 
-              highTemp={`string`}
-              windSpeed={`string`}
-              lowTemp={`string`}
-              humidity={`string`}
+                highTemp={`64`}
+                windSpeed={`2`}
+                lowTemp={`20`}
+                humidity={`65`}
             />
           </div>
         </div>
