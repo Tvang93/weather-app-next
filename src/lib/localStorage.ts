@@ -1,4 +1,4 @@
-function saveToSearchHistory(search: string) {
+function saveToSearchHistory(search:string) {
     let searchArr = getHistoryFromLocalStorage();
     let searchIndex = searchArr.indexOf(search);
   
@@ -18,7 +18,7 @@ function saveToSearchHistory(search: string) {
     }
   }
   
-  function saveToFavorites(city: string) {
+  function saveToFavorites(city:string) {
     console.log("saved");
     let cityArr = getFavoritesFromLocalStorage();
   
@@ -30,24 +30,28 @@ function saveToSearchHistory(search: string) {
   }
   
   function getHistoryFromLocalStorage() {
+    if(typeof window !== "undefined"){
     let localStorageData = localStorage.getItem("SearchHistory");
     if (localStorageData == null) {
       return [];
     }
   
     return JSON.parse(localStorageData);
+    }
   }
   
   function getFavoritesFromLocalStorage() {
+    if(typeof window !== "undefined"){
     let localStorageData = localStorage.getItem("Favorites");
     if (localStorageData == null) {
       return [];
     }
   
     return JSON.parse(localStorageData);
+    }
   }
   
-  function removeFavorites(favorite: string) {
+  function removeFavorites(favorite:string) {
     let localStorageData = getFavoritesFromLocalStorage();
   
     let favoritesIndex = localStorageData.indexOf(favorite);

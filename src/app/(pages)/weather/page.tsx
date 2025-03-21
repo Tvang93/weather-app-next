@@ -7,6 +7,7 @@ import { getCurrentDayData, getFiveDayData } from "@/lib/services";
 import React from "react";
 
 const WeatherPage = async () => {
+
   const oneDayData = await getCurrentDayData("Stockton");
   const fiveDaysData = await getFiveDayData(
     oneDayData.coord.lat,
