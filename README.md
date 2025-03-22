@@ -18,4 +18,11 @@ Requirements:
     TailWind or Bootstrap
     Mobile and Desktop versions must be built out
 
-### Peer Review
+### Peer Review: Chris Wells-Hott
+Website works very good. The design is very nice also. The only thing is that you need responsiveness and complete the local storage other than that great work.
+
+
+
+##### INCOMPLETE #####
+*did not finish local storage ore time*
+*will work on*
