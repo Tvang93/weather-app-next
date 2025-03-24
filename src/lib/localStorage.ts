@@ -19,6 +19,7 @@ function saveToSearchHistory(search:string) {
   }
   
   function saveToFavorites(city:string) {
+    if(typeof window !== "undefined"){
     console.log("saved");
     let cityArr = getFavoritesFromLocalStorage();
   
@@ -27,6 +28,7 @@ function saveToSearchHistory(search:string) {
     }
   
     localStorage.setItem("Favorites", JSON.stringify(cityArr));
+  }
   }
   
   function getHistoryFromLocalStorage() {
@@ -44,7 +46,7 @@ function saveToSearchHistory(search:string) {
     if(typeof window !== "undefined"){
     let localStorageData = localStorage.getItem("Favorites");
     if (localStorageData == null) {
-      return [];
+      return [''];
     }
   
     return JSON.parse(localStorageData);

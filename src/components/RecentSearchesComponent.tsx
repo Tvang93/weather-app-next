@@ -16,7 +16,8 @@ const RecentSearchesComponent = () => {
       <h1 className="text-4xl">
         <u>Recent Searches</u>
       </h1>
-      {SearchHistory.map((each: string, key: number) => {
+      {  getHistoryFromLocalStorage() !== null ?
+        SearchHistory.map((each: string, key: number) => {
         return (
           <div className="flex justify-between" key={key}>
             <h1 className="text-4xl">{each}</h1>
@@ -28,11 +29,13 @@ const RecentSearchesComponent = () => {
                   : `/ProjectWeatherAssets/star.png`
               }`}
               alt="star"
-              onClick={() =>  saveToFavorites(each)}
+              onClick={() => {saveToFavorites(each)}}
             />
           </div>
         );
-      })}
+      }) :
+      <></>
+    }
     </div>
   );
 };
