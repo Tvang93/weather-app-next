@@ -15,9 +15,9 @@ interface Context {
 
 const AppContext = createContext<Context>({
     temp: '',
-    setTemp: (tempAmount: string) => '',
+    setTemp: (tempAmount: string) => tempAmount,
     isFahrenheit: true,
-    setIsFahrenheit: (isTrue: boolean) => true
+    setIsFahrenheit: (isTrue: boolean) => isTrue
 })
 
 export function AppWrapper({children}: {children: React.ReactNode}) {

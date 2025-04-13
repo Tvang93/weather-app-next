@@ -1,6 +1,6 @@
 function saveToSearchHistory(search:string) {
-    let searchArr = getHistoryFromLocalStorage();
-    let searchIndex = searchArr.indexOf(search);
+    const searchArr = getHistoryFromLocalStorage();
+    const searchIndex = searchArr.indexOf(search);
   
     if (!searchArr.includes(search)) {
       searchArr.push(search);
@@ -11,7 +11,7 @@ function saveToSearchHistory(search:string) {
   
     localStorage.setItem("SearchHistory", JSON.stringify(searchArr));
   
-    let localStorageData = getHistoryFromLocalStorage();
+    const localStorageData = getHistoryFromLocalStorage();
     if (localStorageData.length > 4) {
       localStorageData.shift();
       localStorage.setItem("SearchHistory", JSON.stringify(localStorageData));
@@ -21,7 +21,7 @@ function saveToSearchHistory(search:string) {
   function saveToFavorites(city:string) {
     if(typeof window !== "undefined"){
     console.log("saved");
-    let cityArr = getFavoritesFromLocalStorage();
+    const cityArr = getFavoritesFromLocalStorage();
   
     if (!cityArr.includes(city)) {
       cityArr.push(city);
@@ -33,7 +33,7 @@ function saveToSearchHistory(search:string) {
   
   function getHistoryFromLocalStorage() {
     if(typeof window !== "undefined"){
-    let localStorageData = localStorage.getItem("SearchHistory");
+    const localStorageData = localStorage.getItem("SearchHistory");
     if (localStorageData == null) {
       return [];
     }
@@ -44,7 +44,7 @@ function saveToSearchHistory(search:string) {
   
   function getFavoritesFromLocalStorage() {
     if(typeof window !== "undefined"){
-    let localStorageData = localStorage.getItem("Favorites");
+    const localStorageData = localStorage.getItem("Favorites");
     if (localStorageData == null) {
       return [''];
     }
@@ -54,9 +54,9 @@ function saveToSearchHistory(search:string) {
   }
   
   function removeFavorites(favorite:string) {
-    let localStorageData = getFavoritesFromLocalStorage();
+    const localStorageData = getFavoritesFromLocalStorage();
   
-    let favoritesIndex = localStorageData.indexOf(favorite);
+    const favoritesIndex = localStorageData.indexOf(favorite);
   
     localStorageData.splice(favoritesIndex, 1);
   

@@ -17,17 +17,13 @@ const WeatherPage = async () => {
   let highTempArr: string[] = [];
   let lowTempArr: string[] = [];
 
-  if (fiveDaysData != null) {
+  if (fiveDaysData != undefined) {
     type TempMax = {
       temp_max: string;
     };
 
     type MainObjHigh = {
       main: TempMax;
-    };
-
-    type ListDataHigh = {
-      List: MainObjHigh[];
     };
 
     const HighTempFiveDays = fiveDaysData.list.map((each: MainObjHigh) => {
@@ -57,9 +53,7 @@ const WeatherPage = async () => {
       main: TempMin;
     };
 
-    type ListDataLow = {
-      List: MainObjLow[];
-    };
+
 
     const LowTempFiveDays = fiveDaysData.list.map((each: MainObjLow) => {
       return each.main.temp_min;

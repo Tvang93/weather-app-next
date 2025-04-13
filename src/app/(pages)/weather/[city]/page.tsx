@@ -26,9 +26,7 @@ const WeatherPage = async({params}: {params: Promise<{city: string}>}) => {
       main: TempMax;
     };
 
-    type ListDataHigh = {
-      List: MainObjHigh[];
-    };
+
 
     const HighTempFiveDays = fiveDaysData.list.map((each: MainObjHigh) => {
       return each.main.temp_max;
@@ -57,9 +55,7 @@ const WeatherPage = async({params}: {params: Promise<{city: string}>}) => {
       main: TempMin;
     };
 
-    type ListDataLow = {
-      List: MainObjLow[];
-    };
+
 
     const LowTempFiveDays = fiveDaysData.list.map((each: MainObjLow) => {
       return each.main.temp_min;

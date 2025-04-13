@@ -1,6 +1,5 @@
 import { useAppContext } from "@/context/context";
-import { useWeatherImgContext } from "@/context/WeatherImgContext";
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 
 interface Props {
   dayOfWeek: string;

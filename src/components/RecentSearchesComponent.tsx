@@ -5,21 +5,31 @@ import {
   removeFavorites,
   saveToFavorites,
 } from "@/lib/localStorage";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 
 const RecentSearchesComponent = () => {
   const [isFavored, setIsFavored] = useState<boolean>(false);
-  let SearchHistory: string[] = getHistoryFromLocalStorage();
+  const SearchHistory: string[] = getHistoryFromLocalStorage();
+
+const SaveOnClick = (each: string) => {
+  saveToFavorites(each);
+  setIsFavored(true)
+}
+
+const RemoveOnClick = (param: string) => {
+  removeFavorites(param);
+  setIsFavored(false)
+}
 
   return (
     <div className="grow">
       <h1 className="text-4xl">
         <u>Recent Searches</u>
       </h1>
-      {  getHistoryFromLocalStorage() !== null ?
+      {  getHistoryFromLocalStorage() !== undefined ?
         SearchHistory.map((each: string, key: number) => {
         return (
-          <div className="flex justify-between" key={key}>
+          <div key={key} className="flex justify-between" >
             <h1 className="text-4xl">{each}</h1>
             <img
               className="w-[42px]"
@@ -29,7 +39,7 @@ const RecentSearchesComponent = () => {
                   : `/ProjectWeatherAssets/star.png`
               }`}
               alt="star"
-              onClick={() => {saveToFavorites(each)}}
+              onClick={isFavored ? () => RemoveOnClick(each) : () => SaveOnClick(each)}
             />
           </div>
         );

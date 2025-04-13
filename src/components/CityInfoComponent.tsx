@@ -1,6 +1,6 @@
 "use client";
 import { useAppContext } from "@/context/context";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 interface InfoProps {
   cityName: string;
@@ -13,7 +13,7 @@ interface InfoProps {
 const CityInfoComponent = (props: InfoProps) => {
   // const inUS = props.countryName == "US"
   const { temp, setTemp } = useAppContext();
-  const { isFahrenheit, setIsFahrenheit } = useAppContext();
+  const { setIsFahrenheit } = useAppContext();
 
   useEffect(() => {
     if (props.temp != null) {
