@@ -1,4 +1,4 @@
-import { APIKEY } from "@/something"
+const APIKEY = '5d886f4fabd336a84015f1dd23a6bebe';
 
 export const getCurrentDayData = async(city: string) => {
     const response: Response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},US&appid=${APIKEY}&units=imperial`, {
